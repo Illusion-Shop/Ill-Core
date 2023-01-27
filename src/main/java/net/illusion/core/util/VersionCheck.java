@@ -1,4 +1,4 @@
-package dis.illusion.shop.util;
+package net.illusion.core.util;
 
 import org.bukkit.Bukkit;
 

@@ -26,5 +26,5 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 jar {
-    destinationDirectory.set(file('D:\\Project\\minecraft\\Commission\\Servers\\1.14.4\\plugins'))
+    destinationDirectory.set(file('D:\\Project\\minecraft\\Illusion\\Servers\\1.19.2\\plugins'))
 }

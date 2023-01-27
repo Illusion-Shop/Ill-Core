@@ -1,4 +1,4 @@
-package dis.illusion.shop.util;
+package net.illusion.core.util;
 
 
 public class Time {
@@ -97,7 +97,6 @@ public class Time {
         return false;
     }
 
-
     public boolean minMinutes(long minutes) {
         long result = this.millSeconds -= (minutes * this.Minutes);
         if (result > 0) {
@@ -113,6 +112,7 @@ public class Time {
             this.millSeconds = result;
             return true;
         }
+
         return false;
     }
 
@@ -125,11 +125,12 @@ public class Time {
     }
 
     public long getDay() {
-        return (getMillSeconds() % this.Month) / Day;
+
+        return (getMillSeconds() % this.Month) / this.Day;
     }
 
     public long getHours() {
-        return ((getMillSeconds() % this.Day) / Hours) == 0 ? ((getMillSeconds() % this.Day) / Hours) : ((getMillSeconds() % this.Day) / Hours) - 2;
+        return ((getMillSeconds() % this.Day) / Hours) - 10;
     }
 
     public long getMinutes() {
