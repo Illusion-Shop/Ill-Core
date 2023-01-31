@@ -1,4 +1,4 @@
-package net.illusion.core.util;
+package net.illusion.core.util.time;
 
 
 public class Time {
@@ -49,7 +49,6 @@ public class Time {
         return this.millSeconds;
     }
 
-
     public long addMinutes(long minutes) {
         this.millSeconds += (minutes * this.Minutes);
         return this.millSeconds;
@@ -59,7 +58,6 @@ public class Time {
         this.millSeconds += (seconds * this.Seconds);
         return this.millSeconds;
     }
-
 
     public boolean minYear(long year) {
         long result = this.millSeconds -= (year * this.Year);
@@ -112,7 +110,6 @@ public class Time {
             this.millSeconds = result;
             return true;
         }
-
         return false;
     }
 
@@ -130,7 +127,7 @@ public class Time {
     }
 
     public long getHours() {
-        return ((getMillSeconds() % this.Day) / Hours) - 10;
+        return ((getMillSeconds() % this.Day) / Hours);
     }
 
     public long getMinutes() {

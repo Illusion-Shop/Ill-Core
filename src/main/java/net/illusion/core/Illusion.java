@@ -1,23 +1,38 @@
 package net.illusion.core;
 
-import net.illusion.core.data.Config;
-import net.illusion.core.util.Metrics;
-import org.bukkit.plugin.java.JavaPlugin;
+import net.illusion.core.util.plugin.Metrics;
+import net.illusion.core.util.plugin.Register;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 
-public class Illusion extends JavaPlugin {
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Illusion extends Register {
+
+    public static List<String> plugins = new ArrayList<>();
+
+    public Illusion() {
+        super("Core");
+        plugins.add(getName());
+    }
 
     public void onEnable() {
         init();
     }
 
-    public void onDisable() {
-        super.onDisable();
-    }
 
-    public void init(){
-        Config config = new Config("config");
-        config.setPlugin(this);
-        config.loadDefualtConfig();
-        new Metrics(this,17538);
+    public void init() {
+        new Metrics(this, 17538);
+
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "=======================================================");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "                  일루전 코어 작동 완료                ");
+
+         plugins.forEach(name -> {
+            Bukkit.getConsoleSender().sendMessage(name);
+        });
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "=======================================================");
     }
 }

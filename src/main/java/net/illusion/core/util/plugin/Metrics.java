@@ -1,4 +1,4 @@
-package net.illusion.core.util;
+package net.illusion.core.util.plugin;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
