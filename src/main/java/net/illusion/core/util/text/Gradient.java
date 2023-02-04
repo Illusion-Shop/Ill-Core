@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.Arrays;
 
 
-public class Gradient {
+public class Gradient implements Interpolator {
 
     public static double[] linear(double from, double to, int max) {
         final double[] res = new double[max];
@@ -120,5 +120,14 @@ public class Gradient {
         ));
 
         return builder.toString();
+    }
+
+    @Override
+    public double[] interpolate(double from, double to, int max) {
+        final double[] res = new double[max];
+        for (int i = 0; i < max; i++) {
+            res[i] = from + i * ((to - from) / (max - 1));
+        }
+        return res;
     }
 }
