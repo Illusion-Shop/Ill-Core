@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-@SuppressWarnings("all")
 public class PDCData {
     private Plugin plugin;
 
@@ -99,6 +98,25 @@ public class PDCData {
 
         item.setItemMeta(meta);
     }
+
+
+    public @Nullable long getLong(ItemStack item, String key) {
+        Objects.requireNonNull(item, "item must not be null");
+        if (!item.hasItemMeta()) return -1;
+        ItemMeta meta = item.getItemMeta();
+        PersistentDataContainer pdc = meta.getPersistentDataContainer();
+        NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
+        return pdc.get(namespacedKey, PersistentDataType.LONG);
+    }
+
+    public @Nullable long getLong(Entity entity, String key) {
+        Objects.requireNonNull(entity, "entity must not be null");
+        PersistentDataContainer pdc = entity.getPersistentDataContainer();
+        NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
+
+        return pdc.get(namespacedKey, PersistentDataType.LONG);
+    }
+
 
     public @Nullable byte getByte(ItemStack item, String key) {
         Objects.requireNonNull(item, "item must not be null");
